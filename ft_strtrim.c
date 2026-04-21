@@ -6,7 +6,7 @@
 /*   By: gopiment <gopiment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/20 13:52:20 by gopiment          #+#    #+#             */
-/*   Updated: 2026/04/21 13:25:59 by gopiment         ###   ########.fr       */
+/*   Updated: 2026/04/21 14:29:15 by gopiment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	end = ft_strlen(s1) - 1;
 	new = (char *)malloc(sizeof(char) * (ft_strlen(s1) - 1));
 	ft_strlcpy(new, s1, end);
-	while(ft_strchr(set, s1[++start]) && new)
+	while (ft_strchr(set, s1[++start]) && new)
 		new++;
-	while(ft_strchr(set, s1[end] && new))
+	while (ft_strchr(set, s1[end] && new))
 		end--;
 	new[end] = '\0';
-	return(new);
+	return (new);
 }
 
 // int	main(void)

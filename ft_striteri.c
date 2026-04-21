@@ -6,7 +6,7 @@
 /*   By: gopiment <gopiment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/20 14:26:42 by gopiment          #+#    #+#             */
-/*   Updated: 2026/04/20 14:27:06 by gopiment         ###   ########.fr       */
+/*   Updated: 2026/04/21 16:25:39 by gopiment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 		return ;
 	while (s[counter])
 	{
-		f(counter, s + counter);
+		f(counter, &s[counter]);
 		counter++;
 	}
 }

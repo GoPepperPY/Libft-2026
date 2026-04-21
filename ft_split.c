@@ -6,7 +6,7 @@
 /*   By: gopiment <gopiment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/20 13:54:27 by gopiment          #+#    #+#             */
-/*   Updated: 2026/04/20 13:56:19 by gopiment         ###   ########.fr       */
+/*   Updated: 2026/04/21 15:56:05 by gopiment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,20 +74,20 @@ char	**ft_split(char const *s, char c)
 	split[counter_2] = 0;
 	return (split);
 }
-/*
-int main(void)
-{
-	char	*str = "Goncalo Pimenta";
-	char	sep = ' ';
-	char	**result = ft_split(str, sep);
-	int		counter;
 
-	counter = 0;
-	while (result[counter])
-	{
-		puts(result[counter]);
-		counter++;
-	}
-	return (0);
-}
-*/
+// int main(void)
+// {
+// 	// char	*str = "Goncalo Pimenta";
+// 	// char	sep = ' ';
+// 	char	**result = ft_split("lorem ipsum dolor sit amet, consectetur adip
+// iscing elit. Sed non risus. Suspendisse", ' ');
+// 	int		counter;
+
+// 	counter = 0;
+// 	while (result[counter])
+// 	{
+// 		puts(result[counter]);
+// 		counter++;
+// 	}
+// 	return (0);
+// }

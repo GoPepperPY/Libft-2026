@@ -6,7 +6,7 @@
 /*   By: gopiment <gopiment@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/20 14:28:27 by gopiment          #+#    #+#             */
-/*   Updated: 2026/04/20 14:48:14 by gopiment         ###   ########.fr       */
+/*   Updated: 2026/04/21 14:27:13 by gopiment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ void	ft_putstr_fd(char *s, int fd)
 
 	counter = -1;
 	while (s[++counter])
-		write(1, &s[counter], fd);
+		write(fd, &s[counter], 1);
 }
