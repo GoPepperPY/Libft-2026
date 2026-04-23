@@ -1,21 +1,15 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: gopiment <gopiment@student.42porto.com>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/23 18:23:02 by gopiment          #+#    #+#             */
-/*   Updated: 2026/04/23 18:23:04 by gopiment         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "libft.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 
-/* ========== HELPERS ========== */
+/* ========== KO TRACKER ========== */
+
+#define MAX_KO 256
+
+static char	*g_ko_list[MAX_KO];
+static int	g_ko_count = 0;
+static int	g_total = 0;
 
 static void	print_header(const char *title)
 {
@@ -27,10 +21,17 @@ static void	print_header(const char *title)
 
 static void	print_test(const char *name, int passed)
 {
+	g_total++;
 	if (passed)
+	{
 		printf("  [OK]  %s\n", name);
+	}
 	else
+	{
 		printf("  [KO]  %s\n", name);
+		if (g_ko_count < MAX_KO)
+			g_ko_list[g_ko_count++] = (char *)name;
+	}
 }
 
 /* ========== PART 1 — LIBC FUNCTIONS ========== */
@@ -225,11 +226,11 @@ static void	test_strnstr(void)
 static void	test_atoi(void)
 {
 	print_header("ft_atoi");
-	print_test("ft_atoi(\"42\")    == 42",   ft_atoi("42") == 42);
-	print_test("ft_atoi(\"-42\")   == -42",  ft_atoi("-42") == -42);
-	print_test("ft_atoi(\"  21\")  == 21",   ft_atoi("  21") == 21);
-	print_test("ft_atoi(\"0\")     == 0",    ft_atoi("0") == 0);
-	print_test("ft_atoi(\"abc\")   == 0",    ft_atoi("abc") == 0);
+	print_test("ft_atoi(\"42\")    == 42",  ft_atoi("42") == 42);
+	print_test("ft_atoi(\"-42\")   == -42", ft_atoi("-42") == -42);
+	print_test("ft_atoi(\"  21\")  == 21",  ft_atoi("  21") == 21);
+	print_test("ft_atoi(\"0\")     == 0",   ft_atoi("0") == 0);
+	print_test("ft_atoi(\"abc\")   == 0",   ft_atoi("abc") == 0);
 }
 
 static void	test_calloc(void)
@@ -333,16 +334,16 @@ static void	test_itoa(void)
 
 	print_header("ft_itoa");
 	s = ft_itoa(42);
-	print_test("ft_itoa(42)   == \"42\"",   s && strcmp(s, "42") == 0);
+	print_test("ft_itoa(42)      == \"42\"",          s && strcmp(s, "42") == 0);
 	free(s);
 	s = ft_itoa(-42);
-	print_test("ft_itoa(-42)  == \"-42\"",  s && strcmp(s, "-42") == 0);
+	print_test("ft_itoa(-42)     == \"-42\"",         s && strcmp(s, "-42") == 0);
 	free(s);
 	s = ft_itoa(0);
-	print_test("ft_itoa(0)    == \"0\"",    s && strcmp(s, "0") == 0);
+	print_test("ft_itoa(0)       == \"0\"",           s && strcmp(s, "0") == 0);
 	free(s);
 	s = ft_itoa(-2147483648);
-	print_test("ft_itoa(INT_MIN) correct", s && strcmp(s, "-2147483648") == 0);
+	print_test("ft_itoa(INT_MIN) == \"-2147483648\"", s && strcmp(s, "-2147483648") == 0);
 	free(s);
 }
 
@@ -584,6 +585,42 @@ static void	test_lstmap(void)
 	free(n2);
 }
 
+/* ========== SUMMARY ========== */
+
+static void	print_summary(void)
+{
+	int	passed;
+	int	i;
+
+	passed = g_total - g_ko_count;
+	printf("\n");
+	printf("##################################################\n");
+	printf("##                  SUMMARY                    ##\n");
+	printf("##################################################\n");
+	printf("\n");
+	printf("  Total  : %d\n", g_total);
+	printf("  Passed : %d\n", passed);
+	printf("  Failed : %d\n", g_ko_count);
+	printf("\n");
+	if (g_ko_count == 0)
+	{
+		printf("  All tests passed! \n");
+	}
+	else
+	{
+		printf("  Failed tests:\n");
+		printf("  ------------------------------------------\n");
+		i = 0;
+		while (i < g_ko_count)
+		{
+			printf("  [KO]  %s\n", g_ko_list[i]);
+			i++;
+		}
+		printf("  ------------------------------------------\n");
+	}
+	printf("\n");
+}
+
 /* ========== MAIN ========== */
 
 int	main(void)
@@ -593,8 +630,7 @@ int	main(void)
 	printf("##         LIBFT - FULL TEST SUITE             ##\n");
 	printf("##################################################\n");
 
-	/* Part 1 — Libc functions */
-	printf("\n>>> PART 1 — LIBC FUNCTIONS\n");
+	printf("\n>>> PART 1 - LIBC FUNCTIONS\n");
 	test_isalpha();
 	test_isdigit();
 	test_isalnum();
@@ -619,8 +655,7 @@ int	main(void)
 	test_calloc();
 	test_strdup();
 
-	/* Part 2 — Additional functions */
-	printf("\n>>> PART 2 — ADDITIONAL FUNCTIONS\n");
+	printf("\n>>> PART 2 - ADDITIONAL FUNCTIONS\n");
 	test_substr();
 	test_strjoin();
 	test_strtrim();
@@ -633,8 +668,7 @@ int	main(void)
 	test_putendl_fd();
 	test_putnbr_fd();
 
-	/* Part 3 — Linked list */
-	printf("\n>>> PART 3 — LINKED LIST\n");
+	printf("\n>>> PART 3 - LINKED LIST\n");
 	test_lstnew();
 	test_lstadd_front();
 	test_lstsize();
@@ -645,8 +679,6 @@ int	main(void)
 	test_lstiter();
 	test_lstmap();
 
-	printf("\n##################################################\n");
-	printf("##              TESTS COMPLETE                 ##\n");
-	printf("##################################################\n\n");
-	return (0);
+	print_summary();
+	return (g_ko_count > 0 ? 1 : 0);
 }
