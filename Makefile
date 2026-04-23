@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gopiment <gopiment@student.42.fr>          +#+  +:+       +#+         #
+#    By: gopiment <gopiment@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/20 13:56:02 by gopiment          #+#    #+#              #
-#    Updated: 2026/04/21 11:53:33 by gopiment         ###   ########.fr        #
+#    Updated: 2026/04/23 14:00:38 by gopiment         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

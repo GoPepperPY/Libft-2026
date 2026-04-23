@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gopiment <gopiment@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gopiment <gopiment@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/20 13:41:18 by gopiment          #+#    #+#             */
-/*   Updated: 2026/04/20 14:47:41 by gopiment         ###   ########.fr       */
+/*   Updated: 2026/04/23 16:55:34 by gopiment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,30 +25,16 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (start > ft_strlen(s))
 	{
 		string = malloc(1 * sizeof(char));
-		if (string == NULL)
+		if (!string)
 			return (NULL);
 		string[0] = '\0';
 		return (string);
 	}
 	string = malloc((len + 1) * sizeof(char));
-	if (string == NULL)
+	if (!string)
 		return (NULL);
 	while (counter_one < ft_strlen(s) && len-- > 0)
 		string[counter_two++] = s[counter_one++];
 	string[counter_two] = '\0';
 	return (string);
 }
-/*
-int	main(void)
-{
-	char str[] = "Esta eh a string que vou passar.";
-	char *asd;
-	int start = 2;
-	int length = 5;
-
-	printf("%s\n", str);
-	asd = ft_substr(str, start, length);
-	printf("%s\n", asd);
-
-	return (0);
-}*/

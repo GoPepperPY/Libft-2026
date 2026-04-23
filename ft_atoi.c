@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gopiment <gopiment@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gopiment <gopiment@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/20 13:30:51 by gopiment          #+#    #+#             */
-/*   Updated: 2026/04/21 13:29:25 by gopiment         ###   ########.fr       */
+/*   Created: 2026/04/23 13:55:07 by gopiment          #+#    #+#             */
+/*   Updated: 2026/04/23 17:38:27 by gopiment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,29 +36,3 @@ int	ft_atoi(const char *nptr)
 	}
 	return (rest * saver);
 }
-/*
-int	main()
-{
-	char a[] = "-1231as23";
-	char b[] = "-+1231as23";
-	char c[] = "+a231as23";
-	char d[] = "    21+1231as23";
-	char e[] = "     aasdwae";
-
-	printf("\n%d \n", atoi(a));
-	printf("%d \n", ft_atoi(a));
-
-	printf("\n%d \n", atoi(b));
-	printf("%d \n", ft_atoi(b));
-
-	printf("\n%d\n", atoi(c));
-	printf("%d \n", ft_atoi(c));
-
-	printf("\n%d \n", atoi(d));
-	printf("%d \n", ft_atoi(d));
-
-	printf("\n%d \n", atoi(e));
-	printf("%d \n", ft_atoi(e));
-
-	return(0);
-}*/

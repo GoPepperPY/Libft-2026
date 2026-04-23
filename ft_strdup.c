@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gopiment <gopiment@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gopiment <gopiment@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/20 13:39:20 by gopiment          #+#    #+#             */
-/*   Updated: 2026/04/20 14:47:29 by gopiment         ###   ########.fr       */
+/*   Updated: 2026/04/23 15:15:21 by gopiment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strdup(const char *s)
 	counter = 0;
 	lenght = ft_strlen(s);
 	pointer = (char *)malloc((lenght + 1) * sizeof(char));
-	if (pointer == NULL)
+	if (!pointer)
 		return (NULL);
 	while (s[counter])
 	{

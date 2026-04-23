@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gopiment <gopiment@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gopiment <gopiment@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/20 13:17:10 by gopiment          #+#    #+#             */
-/*   Updated: 2026/04/20 13:17:20 by gopiment         ###   ########.fr       */
+/*   Updated: 2026/04/23 14:36:59 by gopiment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	counter_two = destiny_lenght;
 	if (size <= destiny_lenght)
 		return (source_lenght + size);
-	while (src[counter_one] != '\0' && counter_one < size - destiny_lenght - 1)
+	while (src[counter_one] && counter_one < size - destiny_lenght - 1)
 		dst[counter_two++] = src[counter_one++];
 	dst[counter_two] = '\0';
 	return (source_lenght + destiny_lenght);
 }
-/*
-int		main()
-{
-	char c[] = "Ola, quem fala?";
-	char d[] = "Sou eu.";
-
-	printf("\n%zu\n", ft_strlcat(d, c, 22));
-	printf("%s\n", d);
-
-	return (0);
-}*/

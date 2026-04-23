@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gopiment <gopiment@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gopiment <gopiment@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 11:29:49 by gopiment          #+#    #+#             */
-/*   Updated: 2026/04/21 11:49:27 by gopiment         ###   ########.fr       */
+/*   Updated: 2026/04/23 18:49:36 by gopiment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*current;
+	t_list	*temporary;
 
-	current = lst;
-	while (current)
-		current = current->next;
-	return (current);
+	if (!lst)
+		return (NULL);
+	temporary = lst;
+	while (temporary->next != NULL)
+		temporary = temporary->next;
+	return (temporary);
 }

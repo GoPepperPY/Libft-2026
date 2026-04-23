@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gopiment <gopiment@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gopiment <gopiment@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/20 14:25:15 by gopiment          #+#    #+#             */
-/*   Updated: 2026/04/20 14:25:29 by gopiment         ###   ########.fr       */
+/*   Updated: 2026/04/23 14:34:41 by gopiment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	str[counter] = '\0';
 	return (str);
 }
-
-/* char my_func(unsigned int i, char str)
-{
-	printf("My inner function: index = %d and %c\n", i, str);
-	if (str == '.')
-		return (str);
-	return (str - 32);
-	}
-int	main(void)
-{
-	char str[10] = "hello.";
-	printf("The result is %s\n", str);
-	char *result = ft_strmapi(str, my_func);
-	printf("The result is %s\n", result);
-	return (0);
-} */

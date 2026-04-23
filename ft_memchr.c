@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gopiment <gopiment@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gopiment <gopiment@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/20 13:25:09 by gopiment          #+#    #+#             */
-/*   Updated: 2026/04/20 13:25:34 by gopiment         ###   ########.fr       */
+/*   Updated: 2026/04/23 13:57:27 by gopiment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,3 @@ void	*ft_memchr(const void *str, int c, size_t n)
 	}
 	return (NULL);
 }
-/*
-int main ()
-{
-   const char str[] = "http://www.tutorialspoint.com";
-   const char ch = '/';
-   char *ret;
-
-   ret = ft_memchr(str, ch, 6);
-   printf("%s \n", ret);
-   printf("%s", str);
-
-   return(0);
-}*/

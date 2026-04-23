@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gopiment <gopiment@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gopiment <gopiment@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/20 13:28:44 by gopiment          #+#    #+#             */
-/*   Updated: 2026/04/20 14:47:07 by gopiment         ###   ########.fr       */
+/*   Updated: 2026/04/23 14:32:04 by gopiment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	counter_one = 0;
 	if (!*little)
 		return ((char *)big);
-	if (len == 0)
+	if (!len)
 		return (NULL);
 	while (big[counter_one] && counter_one < len)
 	{
@@ -29,7 +29,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 			&& big[counter_one + counter_two] == little[counter_two]
 			&& (counter_one + counter_two) < len && little[counter_two])
 		{
-			if (little[counter_two + 1] == '\0')
+			if (!little[counter_two + 1])
 				return ((char *)&(big[counter_one]));
 			counter_two++;
 		}

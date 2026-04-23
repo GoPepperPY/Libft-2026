@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gopiment <gopiment@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gopiment <gopiment@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/20 13:52:20 by gopiment          #+#    #+#             */
-/*   Updated: 2026/04/21 14:29:15 by gopiment         ###   ########.fr       */
+/*   Updated: 2026/04/23 19:09:05 by gopiment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,21 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*new;
-	int		end;
-	int		start;
+	size_t		start;
+	size_t		end;
+	char		*new;
 
-	start = -1;
 	if (!s1 || !set)
 		return (NULL);
-	end = ft_strlen(s1) - 1;
-	new = (char *)malloc(sizeof(char) * (ft_strlen(s1) - 1));
-	ft_strlcpy(new, s1, end);
-	while (ft_strchr(set, s1[++start]) && new)
-		new++;
-	while (ft_strchr(set, s1[end] && new))
+	start = 0;
+	end = ft_strlen(s1);
+	while (start < end && ft_strchr(set, s1[start]))
+		start++;
+	while (end > start && ft_strchr(set, s1[end - 1]))
 		end--;
-	new[end] = '\0';
+	new = (char *)malloc(sizeof(char) * (end - start + 1));
+	if (!new)
+		return (NULL);
+	ft_strlcpy(new, s1 + start, end - start + 1);
 	return (new);
 }
-
-// int	main(void)
-// {
-// 	char	*str = "uLucas Henriqueu";
-// 	char	*set = "ueLi";
-// 	printf("%s", "str = ");
-// 	printf("%s\n", str);
-// 	printf("%s", "set = ");
-// 	printf("%s\n\n", set);
-// 	printf("%s", "ft_strtrim = ");
-// 	printf("%s\n", ft_strtrim(str, set));
-// 	return (0);
-// }

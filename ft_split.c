@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gopiment <gopiment@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gopiment <gopiment@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/20 13:54:27 by gopiment          #+#    #+#             */
-/*   Updated: 2026/04/21 15:56:05 by gopiment         ###   ########.fr       */
+/*   Updated: 2026/04/23 17:49:33 by gopiment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	**ft_split(char const *s, char c)
 	int		index;
 	char	**split;
 
-	if (!s)
+	if (!s && !c)
 		return (0);
 	split = malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!split)
@@ -74,20 +74,3 @@ char	**ft_split(char const *s, char c)
 	split[counter_2] = 0;
 	return (split);
 }
-
-// int main(void)
-// {
-// 	// char	*str = "Goncalo Pimenta";
-// 	// char	sep = ' ';
-// 	char	**result = ft_split("lorem ipsum dolor sit amet, consectetur adip
-// iscing elit. Sed non risus. Suspendisse", ' ');
-// 	int		counter;
-
-// 	counter = 0;
-// 	while (result[counter])
-// 	{
-// 		puts(result[counter]);
-// 		counter++;
-// 	}
-// 	return (0);
-// }

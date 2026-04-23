@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gopiment <gopiment@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gopiment <gopiment@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/20 13:26:11 by gopiment          #+#    #+#             */
-/*   Updated: 2026/04/20 13:26:28 by gopiment         ###   ########.fr       */
+/*   Updated: 2026/04/23 13:57:34 by gopiment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,3 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		counter++;
 	return ((unsigned char)str1[counter] - (unsigned char)str2[counter]);
 }
-/*
-int		main()
-{
-   char str1[] = "acz";
-   char str2[] = "";
-
-   printf("%d \n", memcmp(str1, str2, 123));
-   printf("%d", ft_memcmp(str1, str2, 123));
-
-   return (0);
-}*/
